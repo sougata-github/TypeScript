@@ -1,4 +1,4 @@
-# TypeScript
+# TypeScript Introduction
 
 TypeScript is a superset of JavaScript, providing type safety and static type checking.
 
@@ -49,4 +49,30 @@ Example:
 let userId = 334455;
 
 console.log(userId);
+```
+
+## Any Type
+
+In situations where TypeScript cannot determine or is unsure of the value produced, it marks the variable as `any`. The `any` type is not a special type; it is simply a marker that turns off type checking.
+
+Note: Avoid using `any` because it isn't type-checked. Use the compiler flag "noImplicitAny" to flag any implicit "any" as an error.
+
+Example:
+
+```typescript
+let hero2;
+
+function getHero2() {
+  return true;
+}
+
+hero2 = getHero2();
+
+console.log(hero2);
+```
+
+In these types of situations, specify the type explicitly to avoid such cases:
+
+```typescript
+let hero1: string;
 ```
