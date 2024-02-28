@@ -6,7 +6,7 @@ hero1 = getHero1();
 console.log(hero1);
 var hero2;
 function getHero2() {
-    return true;
+    return false;
 }
 hero2 = getHero2();
 console.log(hero2);

@@ -11,7 +11,7 @@ console.log(hero1);
 let hero2: any;
 
 function getHero2() {
-  return true;
+  return false;
 }
 
 hero2 = getHero2();
