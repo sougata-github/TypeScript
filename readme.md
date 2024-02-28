@@ -1,21 +1,28 @@
-# TypeScript
+# TypeScript Introduction
 
-TypeScript is a superset of JavaScript, it provides type-safety and static type checking.
+TypeScript is a superset of JavaScript, providing type safety and static type checking.
 
-Statically Typed languages: Data-type of variable is known at compile time. Programmer has to assign the data-type of variable at the time of it's declaration.
-Dynamically Typed languages: Data-type of variable is assigned during run-time by interpreter, depending on its value.
+## Statically Typed vs Dynamically Typed Languages
 
-TypeScript is a development tool, project still runs JavaScript.
+In statically typed languages, the data type of a variable is known at compile time, while in dynamically typed languages, the data type is assigned during runtime by the interpreter, depending on its value.
 
-<i>Syntax:</i>
+## Usage of TypeScript
+
+TypeScript is primarily a development tool, where the project still runs JavaScript.
+
+## Syntax
+
+```typescript
 let variableName: type = value;
+```
 
-To run a .ts program:
+## Running TypeScript Programs
 
-``tsc fileName.ts
-<br/>
-``node fileName.js
+To run a `.ts` program, follow these steps:
 
-First step is called transpiling where the typescript compiler(tsc) transpiles the TS to JS. Transpiling is the process of converting the source code from one programming language to another. It is often used in web, especially with languages like TypeScript, JSX which are not directly supported by web browsers.
+```bash
+tsc fileName.ts
+node fileName.js
+```
 
-
+The first step involves transpiling, where the TypeScript compiler (`tsc`) transpiles the TypeScript code to JavaScript. Transpiling is the process of converting the source code from one programming language to another. It is often used in web development, especially with languages like TypeScript and JSX, which are not directly supported by web browsers.
