@@ -60,19 +60,19 @@ Note: Avoid using `any` because it isn't type-checked. Use the compiler flag "no
 Example:
 
 ```typescript
-let hero2;
+let hero;
 
-function getHero2() {
+function getHero() {
   return true;
 }
 
-hero2 = getHero2();
+hero = getHero();
 
-console.log(hero2);
+console.log(hero);
 ```
 
 In these types of situations, specify the type explicitly to avoid such cases:
 
 ```typescript
-let hero1: string;
+let hero: string;
 ```
