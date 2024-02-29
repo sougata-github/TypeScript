@@ -35,6 +35,6 @@ const fail = (message: string): never => {
   throw new Error(message);
 };
 
-// fail("There was an error!");
+fail("There was an error!");
 
 export {};
