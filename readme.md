@@ -58,18 +58,28 @@ In situations where TypeScript cannot determine or is unsure about the type of a
 Example:
 
 ```typescript
-let hero2;
+let hero;
 
-function getHero2() {
+function getHero() {
   return true;
 }
 
-hero2 = getHero2();
+hero = getHero();
 
+<<<<<<< HEAD
 console.log(hero2);
 
 // Specify the type explicitly to avoid such cases:
 let hero1: string;
+=======
+console.log(hero);
+```
+
+In these types of situations, specify the type explicitly to avoid such cases:
+
+```typescript
+let hero: string;
+>>>>>>> 9b687080fe382162418e63d486422fea3ce43928
 ```
 
 ## Functions in TypeScript (Basics)
