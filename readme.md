@@ -126,7 +126,7 @@ function signUp(name: string, email: string, hasPaid: boolean = false) {
 const user = signUp("MyName", "test@gmail.com");
 ```
 
-### Return Type Value
+### Return Type
 
 ```typescript
 function getName(name: string): string {
