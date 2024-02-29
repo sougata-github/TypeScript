@@ -51,11 +51,9 @@ let userId = 334455;
 console.log(userId);
 ```
 
-## Any Type
+## any Type
 
-In situations where TypeScript cannot determine or is unsure of the value produced, it marks the variable as `any`. The `any` type is not a special type; it is simply a marker that turns off type checking.
-
-Note: Avoid using `any` because it isn't type-checked. Use the compiler flag "noImplicitAny" to flag any implicit "any" as an error.
+In situations where TypeScript cannot determine or is unsure about the type of a value, it marks the variable as `any`. However, using `any` is discouraged as it disables type checking. It's recommended to specify types explicitly or use the compiler flag `noImplicitAny` to flag implicit `any` types as errors.
 
 Example:
 
@@ -69,10 +67,73 @@ function getHero2() {
 hero2 = getHero2();
 
 console.log(hero2);
+
+// Specify the type explicitly to avoid such cases:
+let hero1: string;
 ```
 
-In these types of situations, specify the type explicitly to avoid such cases:
+## Functions in TypeScript (Basics)
+
+Type annotations for functions are strong and recommended.
+
+### Syntax
 
 ```typescript
-let hero1: string;
+function myFunc(param: type): returnType {
+  // Function logic
+}
+```
+
+### Arrow Functions
+
+Arrow functions provide a concise syntax for writing functions.
+
+```typescript
+const myFunc = (param: type): returnType => {
+  // Function logic
+};
+```
+
+### Example: Basic Function
+
+```typescript
+function addTwo(num: number) {
+  return num + 2;
+}
+```
+
+### Providing a Default Value
+
+```typescript
+function signUp(name: string, email: string, hasPaid: boolean = false) {
+  return {
+    name,
+    email,
+    hasPaid,
+  };
+}
+
+const user = signUp("MyName", "test@gmail.com");
+```
+
+### Return Type Value
+
+```typescript
+function getName(name: string): string {
+  return name;
+}
+```
+
+### never Type
+
+Some functions never return a value. The `never` type represents values that are never observed. In a return type, this means that the function throws an exception or terminates execution of the program.
+
+Example:
+
+```typescript
+const fail = (message: string): never => {
+  throw new Error(message);
+};
+
+fail("There was an error!");
 ```
