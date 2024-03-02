@@ -12,7 +12,7 @@ function createUser(_a) {
     console.log(isPaid);
 }
 //throws an error
-//createUser("AAA",true,"something@gmail.com");
+//createUser({name: "AAA",isPaid: true, email: "test@gmail.com"});
 //no error
 var newUser = { name: "John Doe", isPaid: true, email: "hello@gmail.com" };
 createUser(newUser);

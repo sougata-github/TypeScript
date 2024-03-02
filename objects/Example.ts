@@ -12,11 +12,10 @@ function createUser({ name, isPaid }: { name: string; isPaid: boolean }) {
 }
 
 //throws an error
-//createUser("AAA",true,"something@gmail.com");
+//createUser({name: "AAA",isPaid: true, email: "test@gmail.com"});
 
 //no error
 let newUser = { name: "John Doe", isPaid: true, email: "hello@gmail.com" };
-
 createUser(newUser);
 
 export {};

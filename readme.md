@@ -1,4 +1,4 @@
-# TypeScript
+# TypeScript Introduction
 
 TypeScript is a superset of JavaScript, providing type safety and static type checking.
 
@@ -58,28 +58,21 @@ In situations where TypeScript cannot determine or is unsure about the type of a
 Example:
 
 ```typescript
-let hero;
+let hero2;
 
-function getHero() {
+function getHero2() {
   return true;
 }
 
-hero = getHero();
+hero2 = getHero2();
 
-console.log(hero);
+console.log(hero2);
 
 // Specify the type explicitly to avoid such cases:
 let hero1: string;
-console.log(hero);
 ```
 
-In these types of situations, specify the type explicitly to avoid such cases:
-
-```typescript
-let hero: string;
-```
-
-## Functions in TypeScript
+## Functions in TypeScript (Basics)
 
 Type annotations for functions are strong and recommended.
 
@@ -123,7 +116,7 @@ function signUp(name: string, email: string, hasPaid: boolean = false) {
 const user = signUp("MyName", "test@gmail.com");
 ```
 
-### Return Type
+### Return Type Value
 
 ```typescript
 function getName(name: string): string {
@@ -143,4 +136,160 @@ const fail = (message: string): never => {
 };
 
 fail("There was an error!");
+```
+
+# Objects
+
+## Assigning type to an object
+
+Example:
+
+```typescript
+let myObj: { name: string; age: number } = {
+  name: "John",
+  age: 22,
+};
+
+console.log(myObj);
+```
+
+## Bad behaviour of objects
+
+When the function is called with an optional value, it throws an error, but an object is created with an optional value and assigned to a variable. Then, on calling the function with that variable, no error is thrown.
+
+Example:
+
+```typescript
+function createUser({ name, isPaid }: { name: string; isPaid: boolean }) {
+  console.log(name);
+  console.log(isPaid);
+}
+
+// Throws an error
+createUser({ name: "AAA", isPaid: true, email: "test@gmail.com" });
+
+// No error
+let newUser = { name: "John Doe", isPaid: true, email: "hello@gmail.com" };
+createUser(newUser);
+```
+
+# Type Aliases
+
+Type Aliase is a name for any type. This is convenient, but it's common to want to use the same type more than once and refer to it by a single name.
+
+Example:
+
+```typescript
+// Mapping over primitive types
+type myString = string;
+
+// Defining a type:
+type Point = {
+  x: number;
+  y: number;
+};
+
+// Using the type
+function printCoord(pt: Point) {
+  console.log(`The value of X coordinate is: ${pt.x}.`);
+  console.log(`The value of y coordinate is: ${pt.y}.`);
+}
+
+printCoord({ x: 100, y: 100 });
+```
+
+# Combining types
+
+```typescript
+type cardNumber = {
+  cardumber: string;
+};
+
+type cardDate = {
+  carddate: Date;
+};
+
+// Combination of the above two types
+type cardDetails = cardNumber & cardDate;
+```
+
+# Readonly & Optional
+
+`readonly` is used to make a property unchangeable, the value cannot be changed after it is set. Optional marks the property as optional.
+
+Example:
+
+```typescript
+type User = {
+  readonly _id: string;
+  name: string;
+  email: string;
+  creditDetails?: cardDetails;
+};
+
+let user1: User = {
+  _id: "1",
+  name: "John",
+  email: "john@gmail.com",
+  // Since creditDetails is optional we choose not to include it.
+};
+
+console.log(user1);
+
+// Not allowed since property is read only
+//user1._id = "2";
+
+let user2: User = {
+  _id: "2",
+  name: "Doe",
+  email: "doe@gmail.com",
+  creditDetails: {
+    cardumber: "123",
+    carddate: new Date(),
+  },
+};
+
+console.log(user2);
+```
+
+# Arrays
+
+To specify the type of an array like `[1,2,3]`, you can use the syntax `number[]`, this works for any type (e.g., `string[]`).
+
+Example:
+
+```typescript
+let list1: number[] = [1, 2, 3];
+console.log(list1);
+
+// Another syntax:
+const list2: Array<Number> = [4, 5, 6];
+console.log(list2);
+
+// Array of objects
+type User = {
+  name: string;
+  age: number;
+};
+
+const allUsers: User[] = [];
+
+allUsers.push(
+  {
+    name: "John",
+    age: 22,
+  },
+  {
+    name: "Doe",
+    age: 23,
+  }
+);
+console.log(allUsers);
+
+// 2D arrays
+const matrix: number[][] = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+];
+console.log(matrix);
 ```
