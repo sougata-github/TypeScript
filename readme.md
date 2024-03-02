@@ -1,4 +1,4 @@
-# TypeScript Introduction
+# TypeScript
 
 TypeScript is a superset of JavaScript, providing type safety and static type checking.
 
