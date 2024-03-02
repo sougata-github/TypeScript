@@ -155,7 +155,7 @@ console.log(myObj);
 
 ## Bad behaviour of objects
 
-When the function is called with an optional value, it throws an error, but an object is created with an optional value and assigned to a variable. Then, on calling the function with that variable, no error is thrown.
+When a function is called with an optional parameter, it throws an error. However, if an object with an optional property is created and assigned to a variable, calling the function with that variable does not result in an error.
 
 Example:
 
