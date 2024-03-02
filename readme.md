@@ -215,7 +215,7 @@ type cardDetails = cardNumber & cardDate;
 
 # Readonly & Optional
 
-`readonly` is used to make a property unchangeable, the value cannot be changed after it is set. Optional marks the property as optional.
+`readonly` is used to make a property unchangeable, the value cannot be changed after it is set. `?` marks the property as optional.
 
 Example:
 
@@ -254,7 +254,7 @@ console.log(user2);
 
 # Arrays
 
-To specify the type of an array like `[1,2,3]`, you can use the syntax `number[]`, this works for any type (e.g., `string[]`).
+To specify the type of an array like `[1,2,3]`, you can use the syntax `number[]`, this works for any type (e.g. `string[]`).
 
 Example:
 
