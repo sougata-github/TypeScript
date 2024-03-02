@@ -24,5 +24,5 @@ type cardDate = {
   carddate: Date;
 };
 
-//a combination of the above two types
+//combination of the above two types
 type cardDetails = cardNumber & cardDate;
