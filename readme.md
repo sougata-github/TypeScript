@@ -33,8 +33,6 @@ In TypeScript, primitive types such as string, number, and boolean are used to r
 
 Note: JavaScript does not have a special runtime value for TypeScript types, so there's no equivalent to "int" or "float" - everything is simply number.
 
-### Example:
-
 ```typescript
 let userId: number = 334455;
 
@@ -43,19 +41,15 @@ console.log(userId);
 
 However, it's not always necessary to explicitly specify types. In some cases, TypeScript can infer types based on the assigned values. Overusing types can make the code verbose and less readable.
 
-### Example:
-
 ```typescript
 let userId = 334455;
 
 console.log(userId);
 ```
 
-## any Type
+## any
 
 In situations where TypeScript cannot determine or is unsure about the type of a value, it marks the variable as `any`. However, using `any` is discouraged as it disables type checking. It's recommended to specify types explicitly or use the compiler flag `noImplicitAny` to flag implicit `any` types as errors.
-
-### Example:
 
 ```typescript
 let hero2;
@@ -94,8 +88,6 @@ const myFunc = (param: type): returnType => {
 };
 ```
 
-### Example:
-
 ```typescript
 function addTwo(num: number) {
   return num + 2;
@@ -124,11 +116,9 @@ function getName(name: string): string {
 }
 ```
 
-### never Type
+### never
 
 Some functions never return a value. The `never` type represents values that are never observed. In a return type, this means that the function throws an exception or terminates execution of the program.
-
-### Example:
 
 ```typescript
 const fail = (message: string): never => {
@@ -142,8 +132,6 @@ fail("There was an error!");
 
 ### Assigning type to an object
 
-#### Example:
-
 ```typescript
 let myObj: { name: string; age: number } = {
   name: "John",
@@ -156,8 +144,6 @@ console.log(myObj);
 ### Bad behaviour of objects
 
 When a function is called with an optional parameter, it throws an error. However, if an object with an optional property is created and assigned to a variable, calling the function with that variable does not result in an error.
-
-#### Example:
 
 ```typescript
 function createUser({ name, isPaid }: { name: string; isPaid: boolean }) {
@@ -176,8 +162,6 @@ createUser(newUser);
 ## Type Aliases
 
 Type Aliase is a name for any type. This is convenient, but it's common to want to use the same type more than once and refer to it by a single name.
-
-### Example:
 
 ```typescript
 // Mapping over primitive types
@@ -198,7 +182,7 @@ function printCoord(pt: Point) {
 printCoord({ x: 100, y: 100 });
 ```
 
-# Combining types
+### Combining types
 
 ```typescript
 type cardNumber = {
@@ -216,8 +200,6 @@ type cardDetails = cardNumber & cardDate;
 ## Readonly & Optional
 
 `readonly` is used to make a property unchangeable, the value cannot be changed after it is set. `?` marks the property as optional.
-
-### Example:
 
 ```typescript
 type User = {
@@ -255,8 +237,6 @@ console.log(user2);
 ## Arrays
 
 To specify the type of an array like `[1,2,3]`, you can use the syntax `number[]`, this works for any type (e.g. `string[]`).
-
-### Example:
 
 ```typescript
 let list1: number[] = [1, 2, 3];
@@ -298,8 +278,6 @@ console.log(matrix);
 
 A union type describes a value that can be one of several types. We use the vertical bar (`|`) to separate each type.
 
-### Example 1:
-
 ```typescript
 type item = "🍔" | "🍕" | "🌭" | "🥪";
 
@@ -309,16 +287,12 @@ let myItems: { item: item; addon: addons } = { item: "🍔", addon: "🍟" };
 console.log(`MyItems: ${myItems.item} + ${myItems.addon}`);
 ```
 
-### Example 2:
-
 ```typescript
 const numbers: (string | number)[] = [1, 2, "3"];
 console.log(numbers);
 ```
 
 Note: Direct manipulation on individual types is not allowed because TS treats the union type as a new data type.
-
-### Example
 
 ```typescript
 function getId(id: number | string) {
