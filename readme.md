@@ -128,7 +128,7 @@ function getName(name: string): string {
 
 Some functions never return a value. The `never` type represents values that are never observed. In a return type, this means that the function throws an exception or terminates execution of the program.
 
-Example:
+### Example:
 
 ```typescript
 const fail = (message: string): never => {
