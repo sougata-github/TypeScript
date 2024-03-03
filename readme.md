@@ -293,3 +293,45 @@ const matrix: number[][] = [
 ];
 console.log(matrix);
 ```
+
+# Union Type
+
+A union type describes a value that can be one of several types. We use the vertical bar (`|`) to separate each type.
+
+## Example 1:
+
+```typescript
+type item = "🍔" | "🍕" | "🌭" | "🥪";
+
+type addons = "🍟" | "🥤";
+
+let myItems: { item: item; addon: addons } = { item: "🍔", addon: "🍟" };
+console.log(`MyItems: ${myItems.item} + ${myItems.addon}`);
+```
+
+## Example 2:
+
+```typescript
+const numbers: (string | number)[] = [1, 2, "3"];
+console.log(numbers);
+```
+
+Note: Direct manipulation on individual types is not allowed because TS treats the union type as a new data type.
+
+## Example
+
+```typescript
+function getId(id: number | string) {
+  //not allowed
+  // id.toUpperCase();
+
+  if (typeof id === "string") {
+    return id.toLowerCase();
+  }
+
+  return id;
+}
+
+console.log(getId("1234"));
+console.log(getId(1234));
+```
