@@ -7,7 +7,7 @@ console.log(`MyItems: ${myItems.item} + ${myItems.addon}`);
 
 function getId(id: number | string) {
   //not allowed
-  // id.toUpperCase();
+  //id.toUpperCase();
 
   if (typeof id === "string") {
     return id.toLowerCase();

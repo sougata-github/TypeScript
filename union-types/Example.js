@@ -4,7 +4,7 @@ var myItems = { item: "🍔", addon: "🍟" };
 console.log("MyItems: ".concat(myItems.item, " + ").concat(myItems.addon));
 function getId(id) {
     //not allowed
-    // id.toUpperCase();
+    //id.toUpperCase();
     if (typeof id === "string") {
         return id.toLowerCase();
     }

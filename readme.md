@@ -197,7 +197,7 @@ type cardDate = {
 type cardDetails = cardNumber & cardDate;
 ```
 
-## Readonly & Optional
+## readonly & "?"(optional)
 
 `readonly` is used to make a property unchangeable, the value cannot be changed after it is set. `?` marks the property as optional.
 
@@ -297,7 +297,7 @@ Note: Direct manipulation on individual types is not allowed because TS treats t
 ```typescript
 function getId(id: number | string) {
   //not allowed
-  // id.toUpperCase();
+  //id.toUpperCase();
 
   if (typeof id === "string") {
     return id.toLowerCase();
