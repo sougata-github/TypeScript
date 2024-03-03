@@ -72,7 +72,7 @@ console.log(hero2);
 let hero1: string;
 ```
 
-## Functions in TypeScript (Basics)
+## Functions in TypeScript
 
 Type annotations for functions are strong and recommended.
 
