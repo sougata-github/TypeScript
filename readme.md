@@ -197,7 +197,7 @@ type cardDate = {
 type cardDetails = cardNumber & cardDate;
 ```
 
-## readonly & "?"(optional)
+### readonly & "?"(optional)
 
 `readonly` is used to make a property unchangeable, the value cannot be changed after it is set. `?` marks the property as optional.
 
@@ -218,8 +218,7 @@ let user1: User = {
 
 console.log(user1);
 
-// Not allowed since property is read only
-//user1._id = "2";
+//user1._id = "2"; -> Not allowed since property is read only
 
 let user2: User = {
   _id: "2",
