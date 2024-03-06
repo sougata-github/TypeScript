@@ -308,3 +308,128 @@ function getId(id: number | string) {
 console.log(getId("1234"));
 console.log(getId(1234));
 ```
+
+## Tuples
+
+Tuples are typed arrays of pre-defined length and types for each index. The order of data type in each index should be maintained.
+
+```typescript
+const rgb: [number, number, number] = [255, 255, 255];
+console.log(rgb);
+
+const user2: [string, number] = ["john doe", 22];
+console.log(user2);
+```
+
+Strangely, array methods are allowed on tuples that violate type safety, so it is a good practice would be to make a tuple "readonly".
+
+```typescript
+user2.push(344);
+
+const user3: readonly [string, number] = ["john doe", 22];
+// this will now throw an error:
+user3.push(344);
+```
+
+## Enums
+
+A special class that represents a group of constants, can be string or numeric.
+
+```typescript
+enum MEMBER_ROLE {
+  ADMIN = "admin",
+  MODERATOR = "moderator",
+  GUEST = "guest",
+}
+
+const memberRole = MEMBER_ROLE.GUEST;
+console.log(memberRole);
+```
+
+First value is initialised to 0 by default then 1 is added to each additional value.
+
+```typescript
+const enum ZERO_ONE {
+  ZERO,
+  ONE,
+}
+
+const zero = ZERO_ONE.ZERO;
+console.log(zero);
+
+const one = ZERO_ONE.ONE;
+console.log(one);
+```
+
+We can also set the value and have it auto increment from that.
+
+```typescript
+const enum TWO_THREE {
+  TWO = 2,
+  THREE,
+}
+
+const two = TWO_THREE.TWO;
+console.log(two);
+
+const three = TWO_THREE.THREE;
+console.log(three);
+```
+
+Or we can initialise all the values.
+
+```typescript
+const enum HUNDREDS {
+  ONE = 100,
+  TWO = 200,
+  THREE = 300,
+}
+
+const oneHundred = HUNDREDS.ONE;
+console.log(oneHundred);
+```
+
+## Interfaces
+
+Used to define shape/structure of objects. Interfaces are similar to type aliases, except they only apply to object types.
+
+```typescript
+interface rectangle {
+  height: number;
+  width: number;
+  area?: () => number;
+}
+
+//rect1 adheres to interface rectangle.
+const rect1: rectangle = {
+  height: 1.5,
+  width: 2.5,
+};
+console.log(rect1);
+
+const rect2: rectangle = {
+  height: 2,
+  width: 4,
+  area: function () {
+    return this.height * this.width;
+  },
+};
+
+const areaOfRectangle = rect2.area ? rect2.area() : "Area cannot be computed";
+console.log(areaOfRectangle);
+```
+
+Interfaces can extend each other's definition. Extending simply means you are creating a new interface with same properties as that of the original interface, plus something new.
+
+```typescript
+interface coloredRectangle extends rectangle {
+  color: string;
+}
+
+const coloredRect: coloredRectangle = {
+  height: 2.5,
+  width: 4.5,
+  color: "green",
+};
+console.log(coloredRect);
+```
