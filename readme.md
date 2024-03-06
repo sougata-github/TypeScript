@@ -321,7 +321,7 @@ const user2: [string, number] = ["john doe", 22];
 console.log(user2);
 ```
 
-Strangely, array methods are allowed on tuples that violate type safety, so it is a good practice would be to make a tuple "readonly".
+Strangely, array methods are allowed on tuples that violate type safety, so a good practice would be to make a tuple "readonly".
 
 ```typescript
 user2.push(344);
