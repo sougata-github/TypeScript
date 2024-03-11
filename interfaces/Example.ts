@@ -34,7 +34,7 @@ const coloredRect: coloredRectangle = {
 };
 console.log(coloredRect);
 
-//declarration merging:
+//declaration merging:
 // Interfaces support declaration merging, which means you can declare an interface multiple times, and their members will be merged.
 interface MyInterface {
   prop1: number;
