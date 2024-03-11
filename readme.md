@@ -88,12 +88,6 @@ const myFunc = (param: type): returnType => {
 };
 ```
 
-```typescript
-function addTwo(num: number) {
-  return num + 2;
-}
-```
-
 ### Providing a Default Value
 
 ```typescript
@@ -498,5 +492,3 @@ interface MyInterface {
 
 const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 ```
-
-Types are generally more flexible and can be used in a wider range of scenarios.Interfaces are mainly used for defining object shapes and are suitable for scenarios where you need to enforce a specific structure.
