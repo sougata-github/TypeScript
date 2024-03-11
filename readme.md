@@ -164,8 +164,6 @@ createUser(newUser);
 Type Aliase is a name for any type. This is convenient, but it's common to want to use the same type more than once and refer to it by a single name.
 
 ```typescript
-type myString = string;
-
 // Defining a type:
 type Point = {
   x: number;
@@ -433,3 +431,72 @@ const coloredRect: coloredRectangle = {
 };
 console.log(coloredRect);
 ```
+
+## Interfaces vs Types
+
+### Declaration Syntax
+
+Type: Types can be used to define simple types, union types, intersection types, and more.
+
+```typescript
+type MyType = number | string;
+```
+
+Interface: Interfaces are typically used for defining object shapes.
+
+```typescript
+interface MyInterface {
+  prop1: number;
+  prop2: string;
+}
+```
+
+### Extending/Implementing
+
+Type: Types can be used to create union or intersection types, but they cannot be extended or implemented.
+
+```typescript
+type A = { prop: number };
+type B = { prop: string };
+
+type C = A & B; // Intersection type
+```
+
+Interface: Interfaces can extend other interfaces and can be implemented by classes.
+
+```typescript
+interface A {
+  prop: number;
+}
+
+interface B {
+  prop: string;
+}
+
+interface C extends A, B {} // Extending interfaces
+```
+
+### Declaration Merging
+
+Type: Types don't support declaration merging.
+
+```typescript
+type MyType = { prop1: number };
+type MyType = { prop2: string }; // Error: Duplicate identifier 'MyType'.
+```
+
+Interface: Interfaces support declaration merging, which means you can declare an interface multiple times, and their members will be merged.
+
+```typescript
+interface MyInterface {
+  prop1: number;
+}
+
+interface MyInterface {
+  prop2: string;
+}
+
+const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
+```
+
+Types are generally more flexible and can be used in a wider range of scenarios.Interfaces are mainly used for defining object shapes and are suitable for scenarios where you need to enforce a specific structure.

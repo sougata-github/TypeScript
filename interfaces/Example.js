@@ -21,3 +21,5 @@ var coloredRect = {
     color: "green",
 };
 console.log(coloredRect);
+var MyObj = { prop1: 1, prop2: "1" }; // Valid
+console.log(MyObj);
