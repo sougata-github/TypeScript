@@ -164,7 +164,6 @@ createUser(newUser);
 Type Aliase is a name for any type. This is convenient, but it's common to want to use the same type more than once and refer to it by a single name.
 
 ```typescript
-// Mapping over primitive types
 type myString = string;
 
 // Defining a type:
@@ -275,7 +274,7 @@ console.log(matrix);
 
 ## Union Type
 
-A union type describes a value that can be one of several types. We use the vertical bar (`|`) to separate each type.
+Union types are used when a value can be more than a single type. We use the vertical bar (`|`) to separate each type.
 
 ```typescript
 type item = "🍔" | "🍕" | "🌭" | "🥪";

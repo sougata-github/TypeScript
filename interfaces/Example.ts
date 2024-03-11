@@ -1,7 +1,7 @@
 interface rectangle {
   height: number;
   width: number;
-  area?: () => number;
+  area?(): number;
 }
 
 //rect1 adheres to interface rectangle.
