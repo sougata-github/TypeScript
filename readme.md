@@ -460,11 +460,11 @@ Interface: Interfaces can extend other interfaces and can be implemented by clas
 
 ```typescript
 interface A {
-  prop: number;
+  prop1: number;
 }
 
 interface B {
-  prop: string;
+  prop2: string;
 }
 
 interface C extends A, B {} // Extending interfaces
