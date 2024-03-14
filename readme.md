@@ -492,3 +492,59 @@ interface MyInterface {
 
 const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 ```
+
+## Setting up TypeScript for projects (Node.js)
+
+### Step 1
+
+Create `tsconfig.json` file
+
+`tsconfig.json` is a configuration file used by the TypeScript compiler (tsc) to specify compiler options and project settings for a TypeScript project. This file allows developers to define various settings such as compilation target, module system, output directory, and more.
+
+```bash
+tsc --init
+```
+
+### Step 2
+
+Initialise Node Package Manager.
+
+```bash
+npm init -y
+```
+
+### Step 3
+
+Create `dist` and `src` folders.
+
+### Step 4
+
+Create `index.html` file and make it point to `index.js` in the `dist` folder by adding a script tag.
+
+### Step 5
+
+Create `index.ts` in the `src` folder.
+
+### Step 6
+
+Specify output directory in `tsconfig.json`:
+
+```json
+"outDir": "./dist"
+```
+
+All TypeScript files will be transpiled to JavaScript files with the same name as the TypeScript files and stored in the `dist` directory.
+
+### Step 7
+
+Add content to your `.ts` file.
+
+## Step 8:
+
+Compile and run `.ts` file.
+
+```bash
+tsc -w
+```
+
+This command runs TypeScript files in "watch mode", allowing the compiler to detect changes and recompile automatically.
