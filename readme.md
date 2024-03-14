@@ -495,7 +495,7 @@ const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 
 ## Setting up TypeScript for projects (Node.js)
 
-### Step 1
+### Step-1
 
 Create `tsconfig.json` file
 
@@ -505,7 +505,7 @@ Create `tsconfig.json` file
 tsc --init
 ```
 
-### Step 2
+### Step-2
 
 Initialise Node Package Manager.
 
@@ -513,19 +513,19 @@ Initialise Node Package Manager.
 npm init -y
 ```
 
-### Step 3
+### Step-3
 
 Create `dist` and `src` folders.
 
-### Step 4
+### Step-4
 
 Create `index.html` file and make it point to `index.js` in the `dist` folder by adding a script tag.
 
-### Step 5
+### Step-5
 
 Create `index.ts` in the `src` folder.
 
-### Step 6
+### Step-6
 
 Specify output directory in `tsconfig.json`:
 
@@ -535,11 +535,11 @@ Specify output directory in `tsconfig.json`:
 
 All TypeScript files will be transpiled to JavaScript files with the same name as the TypeScript files and stored in the `dist` directory.
 
-### Step 7
+### Step-7
 
 Add content to your `.ts` file.
 
-### Step 8
+### Step-8
 
 Compile and run `.ts` file.
 
