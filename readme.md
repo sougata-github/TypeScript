@@ -539,7 +539,7 @@ All TypeScript files will be transpiled to JavaScript files with the same name a
 
 Add content to your `.ts` file.
 
-## Step 8:
+### Step 8
 
 Compile and run `.ts` file.
 
