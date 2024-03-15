@@ -576,8 +576,7 @@ class Point {
 
 const pt = new Point();
 
-/*Just like with const, let, and var, the initializer of a class property will be used to infer its type:
-
+/*The initializer of a class property will be used to infer its type:
 pt.y="hello" -> cannot assign string to number*/
 
 console.log(pt);
@@ -596,7 +595,8 @@ class User {
   name: string;
   age: number;
 
-  /*Fields may be prefixed with the `readonly` modifier. This prevents assignments to the field outside of the constructor.*/
+  /*Fields may be prefixed with the `readonly` modifier. 
+  This prevents assignments to the field outside of the constructor.*/
   readonly role: string = "GUEST";
 
   //private access modifier makes the field only accesssible inside a class.
@@ -619,7 +619,7 @@ class User {
 const user1 = new User("test@gmail.com", "John Doe", 22, "12345");
 
 //cannot change property "role" since readonly:
-// user1.role="ADMIN" -> not allowed
+//user1.role="ADMIN" -> not allowed
 
 console.log(user1);
 ```
