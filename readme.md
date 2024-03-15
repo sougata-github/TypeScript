@@ -569,7 +569,6 @@ class Point {
 
   /*Fields can also have initializers; 
   these will run automatically when the class is instantiated*/
-
   x = 0;
   y = 0;
 }
