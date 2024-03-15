@@ -499,11 +499,11 @@ const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 
 Create `tsconfig.json` file
 
-`tsconfig.json` is a configuration file used by the TypeScript compiler (tsc) to specify compiler options and project settings for a TypeScript project. This file allows developers to define various settings such as compilation target, module system, output directory, and more.
-
 ```bash
 tsc --init
 ```
+
+`tsconfig.json` is a configuration file used by the TypeScript compiler (tsc) to specify compiler options and project settings for a TypeScript project. This file allows developers to define various settings such as compilation target, module system, output directory, and more.
 
 ### Step-2
 
