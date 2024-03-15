@@ -548,3 +548,78 @@ tsc -w
 ```
 
 This command runs TypeScript files in "watch mode", allowing the compiler to detect changes and recompile automatically.
+
+## Classes in TypeScript
+
+TypeScript offers full support for the class keyword introduced in ES2015.
+
+### Here’s the most basic class - an empty one:
+
+```typescript
+class Empty {}
+```
+
+### Fields
+
+A field declaration creates a `public` writeable property on a class.
+
+```typescript
+class Point {
+  //fields of a class
+
+  /*Fields can also have initializers; 
+  these will run automatically when the class is instantiated*/
+
+  x = 0;
+  y = 0;
+}
+
+const pt = new Point();
+
+/*Just like with const, let, and var, the initializer of a class property will be used to infer its type:
+
+pt.y="hello" -> cannot assign string to number*/
+
+console.log(pt);
+```
+
+### Constructors
+
+Class constructors are very similar to functions. You can add parameters with type annotations, default values, and overloads.
+
+Note: Constructors can’t have return type annotations - the class instance type is always what’s returned.
+
+```typescript
+class User {
+  //All fields are marked 'public' by default
+  email: string;
+  name: string;
+  age: number;
+
+  /*Fields may be prefixed with the `readonly` modifier. This prevents assignments to the field outside of the constructor.*/
+  readonly role: string = "GUEST";
+
+  //private access modifier makes the field only accesssible inside a class.
+  private password: string;
+
+  constructor(
+    email: string,
+    //providing a default value
+    name: string = "Username",
+    age: number,
+    password: string
+  ) {
+    this.email = email;
+    this.name = name;
+    this.age = age;
+    this.password = password;
+  }
+}
+
+const user1 = new User("test@gmail.com", "John Doe", 22, "12345");
+
+//cannot change property "role" since readonly:
+// user1.role="ADMIN" -> not allowed
+
+console.log(user1);
+```
