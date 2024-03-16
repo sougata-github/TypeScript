@@ -622,3 +622,51 @@ const user1 = new User("test@gmail.com", "John Doe", 22, "12345");
 
 console.log(user1);
 ```
+
+## Getters & Setters
+
+- A getter method returns the value of the property’s value. A getter is also called an accessor.
+
+- A setter method updates the property’s value. A setter is also known as a mutator.
+
+- A getter method starts with the keyword `get` and a setter method starts with the keyword `set`.
+
+Note: A set accessor cannot have a return type annotation.
+
+```typescript
+class Rectangle {
+  height: number;
+  width: number;
+
+  private color: string = "";
+
+  constructor(height: number, width: number) {
+    this.height = height;
+    this.width = width;
+  }
+
+  get area(): number {
+    return Number((this.height * this.width).toFixed(2));
+  }
+
+  get rectColor(): string {
+    return this.color;
+  }
+
+  set rectColor(color: string) {
+    if (color === "black" || color === "white") {
+      throw new Error("Color not valid.");
+    }
+    this.color = color;
+  }
+}
+
+const rectangle = new Rectangle(2.2, 4.2);
+
+rectangle.rectColor = "green";
+
+console.log("Area: " + rectangle.area + ".");
+console.log("Color: " + rectangle.rectColor + ".");
+
+console.log(rectangle);
+```
