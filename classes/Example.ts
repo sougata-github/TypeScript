@@ -32,4 +32,21 @@ const user1 = new User("test@gmail.com", "John Doe", 22, "12345");
 
 console.log(user1);
 
+//inheritance and "protected keyword"
+
+class Parent {
+  public name: string;
+  private access: boolean;
+  protected role: string = "parent";
+}
+
+class Child extends Parent {
+  protected role = "child";
+}
+
+const child = new Child();
+
+child.name = "John";
+console.log(child);
+
 export {};

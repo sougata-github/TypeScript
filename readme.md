@@ -670,3 +670,32 @@ console.log("Color: " + rectangle.rectColor + ".");
 
 console.log(rectangle);
 ```
+
+## Inheritance
+
+It is the mechanism in which one class derives the properties of another class. In TypeScript a base class inherits a parent class using the `extends` keyword.
+
+`protected` keyword: protected members are only visible to subclasses of the class they’re declared in.
+
+```typescript
+class Parent {
+  public name: string; //public
+  private access: boolean; //private
+  protected role: string = "parent"; //protected
+}
+
+class Child extends Parent {
+  /* set setAccess(access: boolean) {
+    cannot access even using setter because we are outside the "Parent" class
+    this.access = true;
+  }*/
+
+  //can access role because this is a "child class"
+  protected role = "child";
+}
+
+const child = new Child();
+
+child.name = "John";
+console.log(child);
+```
