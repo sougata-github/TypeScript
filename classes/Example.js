@@ -56,3 +56,12 @@ var Child = /** @class */ (function (_super) {
 var child = new Child();
 child.name = "John";
 console.log(child);
+var Instagram = /** @class */ (function () {
+    function Instagram(photoMode, filter) {
+        this.photoMode = photoMode;
+        this.filter = filter;
+    }
+    return Instagram;
+}());
+var instaPhoto = new Instagram("Manual mode", "B/W");
+console.log(instaPhoto);

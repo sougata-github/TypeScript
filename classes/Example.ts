@@ -49,4 +49,23 @@ const child = new Child();
 child.name = "John";
 console.log(child);
 
+//interfaces can be implemented by classes
+
+interface TakePhoto {
+  photoMode: string;
+  filter: string;
+}
+
+class Instagram implements TakePhoto {
+  photoMode: string;
+  filter: string;
+  constructor(photoMode: string, filter: string) {
+    this.photoMode = photoMode;
+    this.filter = filter;
+  }
+}
+
+const instaPhoto = new Instagram("Manual mode", "B/W");
+console.log(instaPhoto);
+
 export {};
