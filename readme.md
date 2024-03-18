@@ -674,7 +674,7 @@ It is the mechanism in which one class derives the properties of another class. 
 
 - `protected` keyword: protected members are only visible to subclasses of the class they’re declared in.
 
-- `super` keyword: It allows us to invoke constructor of parent class, call parent class methods withing a subclass. The `super` keyword is useful for overriding and extending the behavior of methods defined in a parent class, especially when those methods are not declared as `private`.
+- `super` keyword: It allows us to invoke constructor of parent class, call parent class methods within a subclass. The `super` keyword is useful for overriding and extending the behavior of methods defined in a parent class, especially when those methods are not declared as `private`.
 
 Note: Constructors for derived class must contain a `super` call. Super must be called before accessing `this` in the constructor of a derived class.
 
