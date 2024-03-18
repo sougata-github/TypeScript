@@ -495,7 +495,7 @@ const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 
 ## Setting up TypeScript for projects (Node.js)
 
-- Step-1
+### Step-1
 
 Create `tsconfig.json` file
 
@@ -505,7 +505,7 @@ tsc --init
 
 `tsconfig.json` is a configuration file used by the TypeScript compiler (tsc) to specify compiler options and project settings for a TypeScript project. This file allows developers to define various settings such as compilation target, module system, output directory, and more.
 
-- Step-2
+### Step-2
 
 Initialise Node Package Manager.
 
@@ -513,19 +513,19 @@ Initialise Node Package Manager.
 npm init -y
 ```
 
-- Step-3
+### Step-3
 
 Create `dist` and `src` folders.
 
-- Step-4
+### Step-4
 
 Create `index.html` file and make it point to `index.js` in the `dist` folder by adding a script tag.
 
-- Step-5
+### Step-5
 
 Create `index.ts` in the `src` folder.
 
-- Step-6
+### Step-6
 
 Specify output directory in `tsconfig.json`:
 
@@ -535,11 +535,11 @@ Specify output directory in `tsconfig.json`:
 
 All TypeScript files will be transpiled to JavaScript files with the same name as the TypeScript files and stored in the `dist` directory.
 
-- Step-7
+### Step-7
 
 Add content to your `.ts` file.
 
-- Step-8
+### Step-8
 
 Compile and run `.ts` file.
 
@@ -670,11 +670,11 @@ console.log(instaPhoto);
 
 It is the mechanism in which one class derives the properties of another class. In TypeScript a base class inherits a parent class using the `extends` keyword.
 
-`private` keyword: private access modifier makes the field only accesssible inside a class.
+- `private` keyword: private access modifier makes the field only accesssible inside a class.
 
-`protected` keyword: protected members are only visible to subclasses of the class they’re declared in.
+- `protected` keyword: protected members are only visible to subclasses of the class they’re declared in.
 
-`super` keyword: It allows us to invoke constructor of parent class, call parent class methods withing a subclass. The `super` keyword is useful for overriding and extending the behavior of methods defined in a parent class, especially when those methods are not declared as `private`.
+- `super` keyword: It allows us to invoke constructor of parent class, call parent class methods withing a subclass. The `super` keyword is useful for overriding and extending the behavior of methods defined in a parent class, especially when those methods are not declared as `private`.
 
 Note: Constructors for derived class must contain a `super` call. Super must be called before accessing `this` in the constructor of a derived class.
 
@@ -716,7 +716,7 @@ class Parent extends Family {
 
 const parent1 = new Parent("John");
 parent1.family();
-console.log(parent1, "\n");
+console.log(parent1);
 
 class Child extends Family {
   constructor(name: string) {
@@ -733,5 +733,5 @@ class Child extends Family {
 
 const child1 = new Child("Doe");
 child1.family();
-console.log(child1, "\n");
+console.log(child1);
 ```
