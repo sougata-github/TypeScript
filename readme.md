@@ -495,7 +495,7 @@ const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 
 ## Setting up TypeScript for projects (Node.js)
 
-### Step-1
+- Step-1
 
 Create `tsconfig.json` file
 
@@ -505,7 +505,7 @@ tsc --init
 
 `tsconfig.json` is a configuration file used by the TypeScript compiler (tsc) to specify compiler options and project settings for a TypeScript project. This file allows developers to define various settings such as compilation target, module system, output directory, and more.
 
-### Step-2
+- Step-2
 
 Initialise Node Package Manager.
 
@@ -513,19 +513,19 @@ Initialise Node Package Manager.
 npm init -y
 ```
 
-### Step-3
+- Step-3
 
 Create `dist` and `src` folders.
 
-### Step-4
+- Step-4
 
 Create `index.html` file and make it point to `index.js` in the `dist` folder by adding a script tag.
 
-### Step-5
+- Step-5
 
 Create `index.ts` in the `src` folder.
 
-### Step-6
+- Step-6
 
 Specify output directory in `tsconfig.json`:
 
@@ -535,11 +535,11 @@ Specify output directory in `tsconfig.json`:
 
 All TypeScript files will be transpiled to JavaScript files with the same name as the TypeScript files and stored in the `dist` directory.
 
-### Step-7
+- Step-7
 
 Add content to your `.ts` file.
 
-### Step-8
+- Step-8
 
 Compile and run `.ts` file.
 
@@ -565,29 +565,13 @@ A field declaration creates a `public` writeable property on a class.
 
 ```typescript
 class Point {
-  //fields of a class
-
-  /*Fields can also have initializers; 
-  these will run automatically when the class is instantiated*/
   x = 0;
   y = 0;
 }
 
 const pt = new Point();
-
-/*The initializer of a class property will be used to infer its type:
-pt.y="hello" -> cannot assign string to number*/
-
 console.log(pt);
-```
 
-### Constructors
-
-Class constructors are very similar to functions. You can add parameters with type annotations, default values, and overloads.
-
-Note: Constructors can’t have return type annotations - the class instance type is always what’s returned.
-
-```typescript
 class User {
   //All fields are marked 'public' by default
   email: string;
@@ -598,24 +582,14 @@ class User {
   This prevents assignments to the field outside of the constructor.*/
   readonly role: string = "GUEST";
 
-  //private access modifier makes the field only accesssible inside a class.
-  private password: string;
-
-  constructor(
-    email: string,
-    //providing a default value
-    name: string = "Username",
-    age: number,
-    password: string
-  ) {
+  constructor(email: string, name: string = "Username", age: number) {
     this.email = email;
     this.name = name;
     this.age = age;
-    this.password = password;
   }
 }
 
-const user1 = new User("test@gmail.com", "John Doe", 22, "12345");
+const user1 = new User("test@gmail.com", "John Doe", 22);
 
 //cannot change property "role" since readonly:
 //user1.role="ADMIN" -> not allowed
@@ -623,7 +597,7 @@ const user1 = new User("test@gmail.com", "John Doe", 22, "12345");
 console.log(user1);
 ```
 
-## Getters & Setters
+### Getters & Setters
 
 - A getter method returns the value of the property’s value. A getter is also called an accessor.
 
@@ -671,36 +645,7 @@ console.log("Color: " + rectangle.rectColor + ".");
 console.log(rectangle);
 ```
 
-## Inheritance
-
-It is the mechanism in which one class derives the properties of another class. In TypeScript a base class inherits a parent class using the `extends` keyword.
-
-`protected` keyword: protected members are only visible to subclasses of the class they’re declared in.
-
-```typescript
-class Parent {
-  public name: string; //public
-  private access: boolean; //private
-  protected role: string = "parent"; //protected
-}
-
-class Child extends Parent {
-  /* set setAccess(access: boolean) {
-    cannot access even using setter because we are outside the "Parent" class
-    this.access = true;
-  }*/
-
-  //can access role because this is a "child class"
-  protected role = "child";
-}
-
-const child = new Child();
-
-child.name = "John";
-console.log(child);
-```
-
-Interfaces can be implemented by classes.
+### Interfaces can be implemented by classes.
 
 ```typescript
 interface TakePhoto {
@@ -719,4 +664,74 @@ class Instagram implements TakePhoto {
 
 const instaPhoto = new Instagram("Manual mode", "B/W");
 console.log(instaPhoto);
+```
+
+### Inheritance
+
+It is the mechanism in which one class derives the properties of another class. In TypeScript a base class inherits a parent class using the `extends` keyword.
+
+`private` keyword: private access modifier makes the field only accesssible inside a class.
+
+`protected` keyword: protected members are only visible to subclasses of the class they’re declared in.
+
+`super` keyword: It allows us to invoke constructor of parent class, call parent class methods withing a subclass. The `super` keyword is useful for overriding and extending the behavior of methods defined in a parent class, especially when those methods are not declared as `private`.
+
+Note: Constructors for derived class must contain a `super` call. Super must be called before accessing `this` in the constructor of a derived class.
+
+```typescript
+class Family {
+  public name: string;
+  protected role: string;
+  private access: boolean;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  protected setAccess() {
+    if (this.role === "parent") {
+      this.access = true;
+    } else {
+      this.access = false;
+    }
+  }
+
+  family(): void {
+    console.log("I belong to this family.");
+  }
+}
+
+class Parent extends Family {
+  constructor(name: string) {
+    super(name);
+    this.role = "parent"; //"role" from Family class. (couldn't have accessed if it was private)
+    this.setAccess();
+  }
+
+  family(): void {
+    super.family();
+    console.log("I am a Parent and I have access.");
+  }
+}
+
+const parent1 = new Parent("John");
+parent1.family();
+console.log(parent1, "\n");
+
+class Child extends Family {
+  constructor(name: string) {
+    super(name);
+    this.role = "child";
+    this.setAccess();
+  }
+
+  family(): void {
+    super.family();
+    console.log("I am a Child and I don't have access.");
+  }
+}
+
+const child1 = new Child("Doe");
+child1.family();
+console.log(child1, "\n");
 ```
