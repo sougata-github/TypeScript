@@ -1,7 +1,7 @@
 class Family {
   public name: string;
-  protected role: string;
-  private access: boolean;
+  protected role: string | undefined;
+  private access: boolean | undefined;
 
   constructor(name: string) {
     this.name = name;
