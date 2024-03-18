@@ -53,3 +53,5 @@ class Child extends Family {
 const child1 = new Child("Doe");
 child1.family();
 console.log(child1, "\n");
+
+export {};
