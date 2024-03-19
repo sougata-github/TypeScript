@@ -736,9 +736,9 @@ child1.family();
 console.log(child1);
 ```
 
-## Abstract classes
+### Abstract classes
 
-Define an abstract class in Typescript using the abstract keyword. Abstract classes are mainly for inheritance where other classes may derive from them. We cannot create an instance of an abstract class.
+Define an `abstract` class in Typescript using the abstract keyword. Abstract classes are mainly for inheritance where other classes may derive from them. We cannot create an instance of an abstract class.
 
 An abstract class typically includes one or more abstract methods or property declarations. The class which extends the abstract class must define all the abstract methods.
 
@@ -749,12 +749,12 @@ abstract class Animal {
     this.type = type;
   }
 
-  //regular method -> has to be implemented when declared
+  //regular method -> has to be implemented when declared.
   animalType(): void {
     console.log(`${this.type}.`);
   }
 
-  //abstract method -> can be only implemented in the child class
+  //abstract method -> can be only implemented in the child class.
   abstract animalSound(): string;
 }
 
