@@ -515,7 +515,7 @@ npm init -y
 
 ### Create `index.ts` in the `src` folder.
 
-### Specify output directory in `tsconfig.json`:
+### Specify output directory in `tsconfig.json`
 
 ```json
 "outDir": "./dist"
