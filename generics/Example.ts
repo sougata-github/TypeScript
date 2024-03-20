@@ -1,3 +1,5 @@
+//<> -> generic
+
 function identityAny(val: any): any {
   return val;
 }
@@ -26,5 +28,17 @@ const booleanObjectPair: Pair<boolean, { name: string }> = {
   second: { name: "John" },
 };
 logPair(booleanObjectPair);
+
+//taking an array as parameter
+function getArray<T>(list: Array<T>): Array<T> {
+  return list;
+}
+console.log(getArray(["1", "2", "3"]));
+
+//using arrow functions
+const getArrayFirst = <T>(list: T[]): T => {
+  return list[0];
+};
+console.log(getArrayFirst(["1", "2", "3"]));
 
 export {};

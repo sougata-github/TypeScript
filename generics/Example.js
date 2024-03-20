@@ -1,4 +1,5 @@
 "use strict";
+//<> -> generic
 Object.defineProperty(exports, "__esModule", { value: true });
 function identityAny(val) {
     return val;
@@ -18,3 +19,13 @@ var booleanObjectPair = {
     second: { name: "John" },
 };
 logPair(booleanObjectPair);
+//taking an array as parameter
+function getArray(list) {
+    return list;
+}
+console.log(getArray(["1", "2", "3"]));
+//using arrow functions
+var getArrayFirst = function (list) {
+    return list[0];
+};
+console.log(getArrayFirst(["1", "2", "3"]));

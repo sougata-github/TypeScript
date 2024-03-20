@@ -806,3 +806,22 @@ logPair(booleanObjectPair);
 ```
 
 In the above example, when you define a generic type or interface like `Pair<T, U>`, T and U are placeholders for the actual types that will be used when instances of Pair are created. This allows you to create instances of Pair with different types for the first and second properties without having to define a separate interface for each combination of types.
+
+### Passing an array and using arrow functions
+
+```typescript
+//use either T[] or Array<T>
+/*This function takes an array of a specific type and returns the same array.*/
+function getArray<T>(list: Array<T>): Array<T> {
+  return list;
+}
+console.log(getArray(["1", "2", "3"]));
+```
+
+```typescript
+/*This function takes an array of a specific type and retunrns the first value of that array.*/
+const getArrayFirst = <T>(list: T[]): T => {
+  return list[0];
+};
+console.log(getArrayFirst(["1", "2", "3"]));
+```
