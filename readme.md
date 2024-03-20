@@ -760,3 +760,49 @@ dog.animalType();
 console.log(dog);
 console.log(dogSound);
 ```
+
+## Generics
+
+Generics allow creating 'type variables' which can be used to create classes, functions & type aliases that don't need to explicitly define the types that they use.
+
+They allow you to create reusable components (such as functions, classes, or interfaces) that can work with any data type while still providing type safety.
+
+```typescript
+function identityAny(val: any): any {
+  return val;
+}
+console.log(identityAny(2));
+
+//While using any is certainly generic in that it will cause the function to accept any and all types for the type of arg, we actually are losing the information about what that type was when the function returns. If we passed in a number, the only information we have is that any type could be returned.
+
+function identityGeneric<Type>(val: Type): Type {
+  return val;
+}
+console.log(identityGeneric(2));
+
+//Instead, we need a way of capturing the type of the argument in such a way that we can also use it to denote what is being returned. Here, we will use a type variable, a special kind of variable that works on types rather than values.
+```
+
+### Custom generic interface
+
+```typescript
+interface Pair<T, U> {
+  first: T;
+  second: U;
+}
+
+function logPair<T, U>(pair: Pair<T, U>): void {
+  console.log(`First: ${pair.first}, Second: ${pair.second}`);
+}
+
+const stringNumberPair: Pair<string, number> = { first: "Hello", second: 123 };
+logPair(stringNumberPair);
+
+const booleanObjectPair: Pair<boolean, { name: string }> = {
+  first: true,
+  second: { name: "John" },
+};
+logPair(booleanObjectPair);
+
+// When you define a generic type or interface like Pair<T, U>, T and U are placeholders for the actual types that will be used when instances of Pair are created. This allows you to create instances of Pair with different types for the first and second properties without having to define a separate interface for each combination of types.
+```
