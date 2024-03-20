@@ -811,7 +811,6 @@ In the above example, when you define a generic type or interface like `Pair<T, 
 
 ```typescript
 //use either T[] or Array<T>
-/*This function takes an array of a specific type and returns the same array.*/
 function getArray<T>(list: Array<T>): Array<T> {
   return list;
 }
@@ -819,7 +818,6 @@ console.log(getArray(["1", "2", "3"]));
 ```
 
 ```typescript
-/*This function takes an array of a specific type and retunrns the first value of that array.*/
 const getArrayFirst = <T>(list: T[]): T => {
   return list[0];
 };
