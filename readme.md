@@ -495,7 +495,7 @@ const MyObj: MyInterface = { prop1: 1, prop2: "1" }; // Valid
 
 ## Setting up TypeScript for projects (Node.js)
 
-### Create `tsconfig.json` file
+- Create `tsconfig.json` file
 
 ```bash
 tsc --init
@@ -503,19 +503,19 @@ tsc --init
 
 `tsconfig.json` is a configuration file used by the TypeScript compiler (tsc) to specify compiler options and project settings for a TypeScript project. This file allows developers to define various settings such as compilation target, module system, output directory, and more.
 
-### Initialise Node Package Manager
+- Initialise Node Package Manager
 
 ```bash
 npm init -y
 ```
 
-### Create `dist` and `src` folders.
+- Create `dist` and `src` folders.
 
-### Create `index.html` file and make it point to `index.js` in the `dist` folder by adding a script tag.
+- Create `index.html` file and make it point to `index.js` in the `dist` folder by adding a script tag.
 
-### Create `index.ts` in the `src` folder.
+- Create `index.ts` in the `src` folder.
 
-### Specify output directory in `tsconfig.json`
+- Specify output directory in `tsconfig.json`
 
 ```json
 "outDir": "./dist"
@@ -523,9 +523,9 @@ npm init -y
 
 All TypeScript files will be transpiled to JavaScript files with the same name as the TypeScript files and stored in the `dist` directory.
 
-### Add content to your `.ts` file.
+- Add content to your `.ts` file.
 
-### Compile and run `.ts` file.
+- Compile and run `.ts` file.
 
 ```bash
 tsc -w
@@ -773,15 +773,15 @@ function identityAny(val: any): any {
 }
 console.log(identityAny(2));
 
-//While using any is certainly generic in that it will cause the function to accept any and all types for the type of arg, we actually are losing the information about what that type was when the function returns. If we passed in a number, the only information we have is that any type could be returned.
-
 function identityGeneric<Type>(val: Type): Type {
   return val;
 }
 console.log(identityGeneric(2));
-
-//Instead, we need a way of capturing the type of the argument in such a way that we can also use it to denote what is being returned. Here, we will use a type variable, a special kind of variable that works on types rather than values.
 ```
+
+While using any is certainly generic in that it will cause the function to accept any and all types for the type of arg, we actually are losing the information about what that type was when the function returns. If we passed in a number, the only information we have is that any type could be returned.
+
+Instead, we need a way of capturing the type of the argument in such a way that we can also use it to denote what is being returned. Here, we will use a type variable, a special kind of variable that works on types rather than values.
 
 ### Custom generic interface
 
@@ -803,6 +803,6 @@ const booleanObjectPair: Pair<boolean, { name: string }> = {
   second: { name: "John" },
 };
 logPair(booleanObjectPair);
-
-// When you define a generic type or interface like Pair<T, U>, T and U are placeholders for the actual types that will be used when instances of Pair are created. This allows you to create instances of Pair with different types for the first and second properties without having to define a separate interface for each combination of types.
 ```
+
+In the above example, when you define a generic type or interface like `Pair<T, U>`, T and U are placeholders for the actual types that will be used when instances of Pair are created. This allows you to create instances of Pair with different types for the first and second properties without having to define a separate interface for each combination of types.
