@@ -646,7 +646,7 @@ class Instagram implements TakePhoto {
   }
 }
 
-const instaPhoto = new Instagram("Manual mode", "B/W");
+const instaPhoto = new Instagram("Manual mode", "Black and White");
 console.log(instaPhoto);
 ```
 
@@ -822,4 +822,83 @@ const getArrayFirst = <T>(list: T[]): T => {
   return list[0];
 };
 console.log(getArrayFirst(["1", "2", "3"]));
+```
+
+### Extending a generic type
+
+```typescript
+interface database {
+  name: string;
+  email: string;
+  age: number;
+}
+
+function getUser<T extends database, U extends database>(
+  user1: T,
+  user2: U
+): object {
+  return {
+    user1,
+    user2,
+  };
+}
+
+const user1 = {
+  name: "John",
+  email: "john@gmail.com",
+  age: 22,
+};
+
+const user2 = {
+  name: "Doe",
+  email: "doe@gmail.com",
+  age: 24,
+};
+
+console.log(getUser(user1, user2));
+```
+
+### Generic class
+
+```typescript
+interface Mobile {
+  model: string;
+  screenSize: number;
+  color: string;
+  brand: string;
+  operatingSystem: string;
+}
+
+interface Shirt {
+  style: string;
+  size: string;
+  color: string;
+}
+
+class ECommerce<T extends Mobile | Shirt> {
+  cart: T[] = [];
+
+  addToCart(product: T) {
+    this.cart.push(product);
+  }
+}
+
+const order = new ECommerce();
+
+order.addToCart({
+  model: "iPhone 15 pro",
+  screenSize: 6.12,
+  color: "Black Titanium",
+  brand: "Apple",
+  operatingSystem: "ios 17",
+});
+
+order.addToCart({
+  style: "Checked",
+  size: "medium",
+  color: "Navy Blue",
+});
+
+console.log("\n" + "MyCart:");
+console.log(order.cart);
 ```
