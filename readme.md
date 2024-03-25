@@ -902,3 +902,26 @@ order.addToCart({
 console.log("\n" + "MyCart:");
 console.log(order.cart);
 ```
+
+## Type Narrowing
+
+Type narrowing in TypeScript refers to the process of refining the type of a variable within a certain block of code based on certain conditions. This helps TypeScript infer more specific types, improving type safety and enabling better code optimization.
+
+```typescript
+function printAll(strs: string | string[] | null) {
+  if (strs) {
+    if (typeof strs === "object") {
+      for (const s of strs) {
+        console.log(s);
+      }
+    } else if (typeof strs === "string") {
+      console.log(strs);
+    }
+  }
+}
+
+printAll("John Doe");
+printAll(["John", "Doe"]);
+```
+
+While it might not look like much, there’s actually a lot going on under the covers here. Much like how TypeScript analyzes runtime values using static types, it overlays type analysis on JavaScript’s runtime control flow constructs like if/else, conditional ternaries, loops, truthiness checks, etc., which can all affect those types.
