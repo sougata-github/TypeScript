@@ -7,7 +7,7 @@ function getId(id: string | null): string {
 }
 
 console.log(getId(null));
-console.log(getId("287283782732abcd"));
+console.log(getId("287283782732abcde"));
 
 function printAll(strs: string | string[] | null) {
   if (strs) {
