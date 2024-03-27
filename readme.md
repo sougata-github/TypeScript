@@ -957,3 +957,50 @@ const rectangle: Rectangle = { kind: "rectangle", width: 6, height: 4 };
 console.log(calculateArea(square));
 console.log(calculateArea(rectangle));
 ```
+
+### `instanceof` operator
+
+The `instanceof` keyword is used to check whether an object is an instance of a particular class or constructor function. It returns true if the object is an instance of the specified class or its subclasses; otherwise, it returns false.
+
+```typescript
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toUTCString());
+  } else {
+    console.log(x.toUpperCase());
+  }
+}
+
+logValue("Sunday, 25th Dec");
+logValue(new Date());
+```
+
+### Type predicate
+
+A type predicate is a way to assert the type of a variable within a conditional statement. It allows you to narrow down the type of a variable within a certain block of code, based on some condition.
+
+```typescript
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+
+function feedPet(pet: Fish | Bird) {
+  if (isFish(pet)) {
+    pet.swim();
+    console.log("Fish food");
+  } else {
+    pet.fly();
+    console.log("Bird food");
+  }
+}
+const myFish: Fish = { swim: () => console.log("Fish is swimming") };
+const myBird: Bird = { fly: () => console.log("Bird is flying") };
+
+feedPet(myFish);
+feedPet(myBird);
+```
+
+In the `isFish` function, we define a type predicate `pet is Fish`, indicating that if the condition `(pet as Fish).swim !== undefined` is true, then `pet` is indeed a `Fish`. Within the `feedPet` function, when we call `isFish(pet)`, TypeScript narrows down the type of pet to Fish if the condition is met, allowing us to safely call `pet.swim()` without TypeScript throwing errors.

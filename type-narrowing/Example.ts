@@ -51,4 +51,67 @@ const rectangle: Rectangle = { kind: "rectangle", width: 6, height: 4 };
 console.log(calculateArea(square));
 console.log(calculateArea(rectangle));
 
+//'instanceof' operator
+class Car {
+  drive(): void {
+    console.log("Driving a car.");
+  }
+}
+
+class Bicycle {
+  ride(): void {
+    console.log("Riding the bicycle.");
+  }
+}
+
+function move(vehicle: Car | Bicycle) {
+  if (vehicle instanceof Car) {
+    vehicle.drive();
+  } else if (vehicle instanceof Bicycle) {
+    vehicle.ride();
+  } else {
+    console.log("Unknown vehicle type.");
+  }
+}
+
+const car = new Car();
+const bicyle = new Bicycle();
+
+move(car);
+move(bicyle);
+
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toUTCString());
+  } else {
+    console.log(x.toUpperCase());
+  }
+}
+
+logValue("Sunday, 25th Dec");
+logValue(new Date());
+
+//type predicate
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+
+function feedPet(pet: Fish | Bird) {
+  if (isFish(pet)) {
+    pet.swim();
+    console.log("Fish food");
+  } else {
+    pet.fly();
+    console.log("Bird food");
+  }
+}
+const myFish: Fish = { swim: () => console.log("Fish is swimming") };
+const myBird: Bird = { fly: () => console.log("Bird is flying") };
+
+feedPet(myFish);
+feedPet(myBird);
+
 export {};
