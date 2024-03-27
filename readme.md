@@ -61,9 +61,6 @@ function getHero2() {
 hero2 = getHero2();
 
 console.log(hero2);
-
-// Specify the type explicitly to avoid such cases:
-let hero1: string;
 ```
 
 ## Functions in TypeScript
@@ -583,9 +580,9 @@ console.log(user1);
 
 ### Getters & Setters
 
-- A getter method returns the value of the property’s value. A getter is also called an accessor.
+- A getter method returns the value of the property’s value. A getter is also called an <em>accessor</em>.
 
-- A setter method updates the property’s value. A setter is also known as a mutator.
+- A setter method updates the property’s value. A setter is also known as a <em>mutator</em>.
 
 - A getter method starts with the keyword `get` and a setter method starts with the keyword `set`.
 
@@ -925,3 +922,38 @@ printAll(["John", "Doe"]);
 ```
 
 While it might not look like much, there’s actually a lot going on under the covers here. Much like how TypeScript analyzes runtime values using static types, it overlays type analysis on JavaScript’s runtime control flow constructs like if/else, conditional ternaries, loops, truthiness checks, etc., which can all affect those types.
+
+### `in` operator
+
+The `in` operator is used for type narrowing, which means it helps narrow down the type of an object, based on wether a property exists within it. It's particularly useful when working with union or discriminated types.
+
+```typescript
+interface Square {
+  kind: "square";
+  size: number;
+}
+
+interface Rectangle {
+  kind: "rectangle";
+  width: number;
+  height: number;
+}
+
+type Shape = Square | Rectangle;
+
+function calculateArea(shape: Shape): number {
+  if ("size" in shape) {
+    // 'shape' is of type 'Square' here
+    return shape.size * shape.size;
+  } else {
+    // 'shape' is of type 'Rectangle' here
+    return shape.width * shape.height;
+  }
+}
+
+const square: Square = { kind: "square", size: 5 };
+const rectangle: Rectangle = { kind: "rectangle", width: 6, height: 4 };
+
+console.log(calculateArea(square));
+console.log(calculateArea(rectangle));
+```

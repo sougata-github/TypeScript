@@ -23,3 +23,15 @@ function printAll(strs) {
 }
 printAll("John Doe");
 printAll(["John", "Doe"]);
+function calculateArea(shape) {
+    if ("size" in shape) {
+        return shape.size * shape.size;
+    }
+    else {
+        return shape.width * shape.height;
+    }
+}
+var square = { kind: "square", size: 5 };
+var rectangle = { kind: "rectangle", width: 6, height: 4 };
+console.log(calculateArea(square));
+console.log(calculateArea(rectangle));

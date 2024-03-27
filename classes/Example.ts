@@ -20,7 +20,6 @@ class User {
 }
 
 const user1 = new User("test@gmail.com", "John Doe", 22);
-
 console.log(user1, "\n");
 
 //interfaces can be implemented by classes
