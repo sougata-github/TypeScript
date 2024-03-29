@@ -996,6 +996,7 @@ function feedPet(pet: Fish | Bird) {
     console.log("Bird food");
   }
 }
+
 const myFish: Fish = { swim: () => console.log("Fish is swimming") };
 const myBird: Bird = { fly: () => console.log("Bird is flying") };
 
