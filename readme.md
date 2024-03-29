@@ -1005,3 +1005,60 @@ feedPet(myBird);
 ```
 
 In the `isFish` function, we define a type predicate `pet is Fish`, indicating that if the condition `(pet as Fish).swim !== undefined` is true, then `pet` is indeed a `Fish`. Within the `feedPet` function, when we call `isFish(pet)`, TypeScript narrows down the type of pet to Fish if the condition is met, allowing us to safely call `pet.swim()` without TypeScript throwing errors.
+
+### Discriminated Union & Exhaustive Checking
+
+A discriminated union is a union type that utilizes a common property in each of its constituent types to allow for more precise type checking. This common property, typically called a "discriminant" or "tag", is used to discriminate between the different possible shapes within the union.
+
+Exhaustive checking refers to ensuring that all possible cases of the discriminated union are handled within a switch statement or if-else chain. This helps TypeScript catch errors where you might forget to handle a specific case, ensuring that your code is more robust.
+
+The never type is used to indicate that a value should never occur. When used in the context of exhaustive checking with discriminated unions, it helps TypeScript ensure that all possible cases are handled, leaving no room for unexpected values.
+
+```typescript
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  side: number;
+}
+
+type Shape = Circle | Square;
+
+function getShape(shape: Shape): string {
+  if (shape.kind === "circle") {
+    return "Circle";
+  }
+  return "Square";
+}
+
+function getArea(shape: Shape): number {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.side * shape.side;
+    default:
+      const _defaultShape: never = shape;
+      return _defaultShape;
+  }
+}
+
+const circle: Circle = {
+  kind: "circle",
+  radius: 2,
+};
+
+const square: Square = {
+  kind: "square",
+  side: 5,
+};
+
+console.log(getShape(circle));
+console.log(getShape(square));
+
+console.log(Number(getArea(circle).toFixed(2)));
+console.log(Number(getArea(square).toFixed(2)));
+```

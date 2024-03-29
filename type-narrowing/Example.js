@@ -23,6 +23,7 @@ function printAll(strs) {
 }
 printAll("John Doe");
 printAll(["John", "Doe"]);
+console.log("\n");
 function calculateArea(shape) {
     if ("size" in shape) {
         return shape.size * shape.size;
@@ -35,6 +36,7 @@ var square = { kind: "square", size: 5 };
 var rectangle = { kind: "rectangle", width: 6, height: 4 };
 console.log(calculateArea(square));
 console.log(calculateArea(rectangle));
+console.log("\n");
 //'instanceof' operator
 var Car = /** @class */ (function () {
     function Car() {
@@ -77,6 +79,7 @@ function logValue(x) {
 }
 logValue("Sunday, 25th Dec");
 logValue(new Date());
+console.log("\n");
 function isFish(pet) {
     return pet.swim !== undefined;
 }
@@ -94,3 +97,33 @@ var myFish = { swim: function () { return console.log("Fish is swimming"); } };
 var myBird = { fly: function () { return console.log("Bird is flying"); } };
 feedPet(myFish);
 feedPet(myBird);
+console.log("\n");
+function getShape(shape) {
+    if (shape.kind === "circle") {
+        return "Circle";
+    }
+    return "Square";
+}
+function getArea(shape) {
+    switch (shape.kind) {
+        case "circle":
+            return Math.PI * Math.pow(shape.radius, 2);
+        case "square":
+            return shape.side * shape.side;
+        default:
+            var _defaultShape = shape;
+            return _defaultShape;
+    }
+}
+var circle = {
+    kind: "circle",
+    radius: 2,
+};
+var square2 = {
+    kind: "square",
+    side: 5,
+};
+console.log(getShape(circle));
+console.log(getShape(square2));
+console.log(Number(getArea(circle).toFixed(2)));
+console.log(Number(getArea(square2).toFixed(2)));

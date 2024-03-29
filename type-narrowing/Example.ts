@@ -23,6 +23,8 @@ function printAll(strs: string | string[] | null) {
 printAll("John Doe");
 printAll(["John", "Doe"]);
 
+console.log("\n");
+
 //'in' operator
 interface Square {
   kind: "square";
@@ -50,6 +52,8 @@ const rectangle: Rectangle = { kind: "rectangle", width: 6, height: 4 };
 
 console.log(calculateArea(square));
 console.log(calculateArea(rectangle));
+
+console.log("\n");
 
 //'instanceof' operator
 class Car {
@@ -91,6 +95,8 @@ function logValue(x: Date | string) {
 logValue("Sunday, 25th Dec");
 logValue(new Date());
 
+console.log("\n");
+
 //type predicate
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
@@ -113,5 +119,55 @@ const myBird: Bird = { fly: () => console.log("Bird is flying") };
 
 feedPet(myFish);
 feedPet(myBird);
+
+console.log("\n");
+
+//discriminated union & exhaustive checking
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square2 {
+  kind: "square";
+  side: number;
+}
+
+type Shape2 = Circle | Square2;
+
+function getShape(shape: Shape2): string {
+  if (shape.kind === "circle") {
+    return "Circle";
+  }
+  return "Square";
+}
+
+function getArea(shape: Shape2): number {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.side * shape.side;
+    default:
+      const _defaultShape: never = shape;
+      return _defaultShape;
+  }
+}
+
+const circle: Circle = {
+  kind: "circle",
+  radius: 2,
+};
+
+const square2: Square2 = {
+  kind: "square",
+  side: 5,
+};
+
+console.log(getShape(circle));
+console.log(getShape(square2));
+
+console.log(Number(getArea(circle).toFixed(2)));
+console.log(Number(getArea(square2).toFixed(2)));
 
 export {};
