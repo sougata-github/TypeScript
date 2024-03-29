@@ -1009,6 +1009,7 @@ In the `isFish` function, we define a type predicate `pet is Fish`, indicating t
 ### Discriminated Union & Exhaustive Checking
 
 A discriminated union is a union type that utilizes a common property in each of its constituent types to allow for more precise type checking. This common property, typically called a "discriminant" or "tag", is used to discriminate between the different possible shapes within the union.
+(`kind` in this case)
 
 Exhaustive checking refers to ensuring that all possible cases of the discriminated union are handled within a switch statement or if-else chain. This helps TypeScript catch errors where you might forget to handle a specific case, ensuring that your code is more robust.
 
