@@ -1012,7 +1012,7 @@ A discriminated union is a union type that utilizes a common property in each of
 
 Exhaustive checking refers to ensuring that all possible cases of the discriminated union are handled within a switch statement or if-else chain. This helps TypeScript catch errors where you might forget to handle a specific case, ensuring that your code is more robust.
 
-The never type is used to indicate that a value should never occur. When used in the context of exhaustive checking with discriminated unions, it helps TypeScript ensure that all possible cases are handled, leaving no room for unexpected values.
+The `never` type is used to indicate that a value should never occur. When used in the context of exhaustive checking with discriminated unions, it helps TypeScript ensure that all possible cases are handled, leaving no room for unexpected values.
 
 ```typescript
 interface Circle {
