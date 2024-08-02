@@ -580,7 +580,7 @@ console.log(user1);
 
 ### Getters & Setters
 
-- A getter method returns the value of the property’s value. A getter is also called an <em>accessor</em>.
+- A getter method returns the property’s value. A getter is also called an <em>accessor</em>.
 
 - A setter method updates the property’s value. A setter is also known as a <em>mutator</em>.
 
