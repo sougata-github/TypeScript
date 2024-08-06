@@ -51,18 +51,6 @@ console.log(userId);
 
 In situations where TypeScript cannot determine or is unsure about the type of a value, it marks the variable as `any`. However, using `any` is discouraged as it disables type checking. It's recommended to specify types explicitly or use the compiler flag `noImplicitAny` to flag implicit `any` types as errors.
 
-```typescript
-let hero2;
-
-function getHero2() {
-  return true;
-}
-
-hero2 = getHero2();
-
-console.log(hero2);
-```
-
 ## Functions in TypeScript
 
 Type annotations for functions are strong and recommended.
